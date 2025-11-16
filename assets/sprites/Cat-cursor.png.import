@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pjpsmoa6qugu"
-path="res://.godot/imported/tuna-can.png-78dfe5133ab066dd356032646eb89a3f.ctex"
+uid="uid://c4ic6lemj12b0"
+path="res://.godot/imported/Cat-cursor.png-8e003f9bb808627fc46b579d883436cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tuna-can.png"
-dest_files=["res://.godot/imported/tuna-can.png-78dfe5133ab066dd356032646eb89a3f.ctex"]
+source_file="res://assets/sprites/Cat-cursor.png"
+dest_files=["res://.godot/imported/Cat-cursor.png-8e003f9bb808627fc46b579d883436cc.ctex"]
 
 [params]
 
