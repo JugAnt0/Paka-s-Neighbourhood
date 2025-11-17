@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1elk8i8bxec6"]
+
+[ext_resource type="Script" uid="uid://dvee11g7w2qnp" path="res://script/characters.gd" id="1_xty33"]
+[ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="2_5y4gl"]
+
+[node name="Characters" type="Node2D"]
+script = ExtResource("1_xty33")
+
+[node name="fade_transition" parent="." instance=ExtResource("2_5y4gl")]

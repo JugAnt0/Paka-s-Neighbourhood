@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dd3mkrk8qukie"]
+[gd_scene load_steps=16 format=4 uid="uid://dd3mkrk8qukie"]
 
 [ext_resource type="Script" uid="uid://b4kaxmpq7ya8q" path="res://script/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://b0yp57dmp1r23" path="res://assets/sprites/inside-house.png" id="2_iywne"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://55l8lc845274" path="res://assets/sprites/CharactersButton2.png" id="5_trtic"]
 [ext_resource type="Texture2D" uid="uid://hky2svb3bcp7" path="res://assets/sprites/Exit1.png" id="6_ir15t"]
 [ext_resource type="Texture2D" uid="uid://ddoo6carvvded" path="res://assets/sprites/Exit2.png" id="7_ca42v"]
+[ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="12_dinhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("2_iywne")
@@ -140,5 +141,14 @@ rotation = -0.12915437
 position = Vector2(-235, -79)
 zoom = Vector2(9, 9)
 
+[node name="fade_transition" parent="." instance=ExtResource("12_dinhu")]
+visible = false
+
+[node name="FadeTimer" type="Timer" parent="fade_transition"]
+
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttons/CharactersButton" to="." method="_on_characters_button_pressed"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="mouse_entered" from="Bellist" to="." method="_on_bellist_mouse_entered"]
 [connection signal="mouse_exited" from="Bellist" to="." method="_on_bellist_mouse_exited"]
+[connection signal="timeout" from="fade_transition/FadeTimer" to="." method="_on_fade_timer_timeout"]

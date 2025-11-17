@@ -1,5 +1,6 @@
 extends Node2D
 
+var button_type = null
 
 var pointer = preload("res://assets/sprites/pointer.png")
 var cat = preload("res://assets/sprites/Cat-cursor.png")
@@ -10,3 +11,31 @@ func _on_bellist_mouse_entered() -> void:
 
 func _on_bellist_mouse_exited() -> void:
 	Input.set_custom_mouse_cursor(pointer, Input.CURSOR_ARROW, Vector2(16,16))
+
+
+
+func _on_start_button_pressed():
+	button_type = "start"
+	$fade_transition.show()
+	$fade_transition/FadeTimer.start()
+	$fade_transition/AnimationPlayer.play("fade_in")
+	
+
+func _on_characters_button_pressed():
+	button_type = "characters"
+	$fade_transition.show()
+	$fade_transition/FadeTimer.start()
+	$fade_transition/AnimationPlayer.play("fade_in")
+	
+
+func _on_exit_button_pressed():
+	get_tree().quit()
+	
+
+
+func _on_fade_timer_timeout() -> void:
+	if button_type == "start":
+		get_tree().change_scene_to_file("res://scenes/start_game.tscn")
+		
+	elif button_type == "characters":
+		get_tree().change_scene_to_file("res://scenes/characters.tscn")

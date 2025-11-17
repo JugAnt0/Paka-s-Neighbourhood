@@ -6,6 +6,7 @@
 size = Vector2(14, 20)
 
 [node name="red house" type="CharacterBody2D"]
+z_index = 4
 
 [node name="House" type="Sprite2D" parent="."]
 position = Vector2(1, -32)
