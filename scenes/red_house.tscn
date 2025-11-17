@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsqshd1sdl1jf"]
+
+[ext_resource type="Texture2D" uid="uid://b34wyurbkncap" path="res://assets/sprites/house.png" id="1_8nmui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6ogj"]
+size = Vector2(14, 20)
+
+[node name="red house" type="CharacterBody2D"]
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(1, -32)
+texture = ExtResource("1_8nmui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, -10)
+shape = SubResource("RectangleShape2D_w6ogj")
