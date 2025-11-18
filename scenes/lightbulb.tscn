@@ -21,7 +21,7 @@ point_count = 3
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_x8a88")
 region_enabled = true
-region_rect = Rect2(114, 50, 12, 9)
+region_rect = Rect2(178, 51, 12, 9)
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(0, 15)

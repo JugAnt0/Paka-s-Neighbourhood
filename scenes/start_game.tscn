@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=4 uid="uid://6fbm3euyryor"]
+[gd_scene load_steps=13 format=4 uid="uid://6fbm3euyryor"]
 
 [ext_resource type="Script" uid="uid://bn6dby6jckn38" path="res://script/start_game.gd" id="1_tq2sd"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="2_2aiwh"]
 [ext_resource type="Texture2D" uid="uid://b34wyurbkncap" path="res://assets/sprites/house.png" id="2_wcjs8"]
 [ext_resource type="Script" uid="uid://3inedt7vwkw7" path="res://script/camera_2d.gd" id="4_mc8qq"]
 [ext_resource type="Texture2D" uid="uid://c41jkf66ip1it" path="res://assets/sprites/ground.png" id="4_qr1nj"]
+[ext_resource type="Texture2D" uid="uid://dw1ip82cb2pkl" path="res://assets/sprites/househover.png" id="4_ya1w5"]
+[ext_resource type="Texture2D" uid="uid://bmn7vxop3j4q8" path="res://assets/sprites/bLUEhOUSE.png" id="5_4ty0x"]
+[ext_resource type="Texture2D" uid="uid://dgrmdreumpiua" path="res://assets/sprites/bLUEhOUSEhover.png" id="6_oyaqm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcjs8"]
 texture = ExtResource("4_qr1nj")
@@ -80,7 +83,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="TextureButton" parent="Button Control"]
+[node name="RedButton" type="TextureButton" parent="Button Control"]
 z_index = 1
 layout_mode = 0
 offset_left = 386.0
@@ -88,11 +91,21 @@ offset_top = 256.0
 offset_right = 450.0
 offset_bottom = 320.0
 texture_normal = ExtResource("2_wcjs8")
+texture_hover = ExtResource("4_ya1w5")
 
-[node name="PointLight2D" type="PointLight2D" parent="Button Control/Button"]
+[node name="PointLight2D" type="PointLight2D" parent="Button Control/RedButton"]
 position = Vector2(42, 46)
 color = Color(0.75527406, 0.43790266, 0.19990289, 1)
 texture = SubResource("GradientTexture2D_qr1nj")
+
+[node name="BlueButton" type="TextureButton" parent="Button Control"]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 256.0
+offset_right = 590.0
+offset_bottom = 320.0
+texture_normal = ExtResource("5_4ty0x")
+texture_hover = ExtResource("6_oyaqm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(487, 273)
@@ -107,12 +120,15 @@ position_smoothing_speed = 0.5
 script = ExtResource("4_mc8qq")
 
 [node name="fade_transition" parent="." instance=ExtResource("2_2aiwh")]
-offset_left = -6001.0
-offset_top = -3359.0
-offset_right = 1983.0
-offset_bottom = 1015.0
+offset_left = -5446.0
+offset_top = -2769.0
+offset_right = 2538.0
+offset_bottom = 1605.0
 
 [node name="FadeTimer" type="Timer" parent="fade_transition"]
 
-[connection signal="pressed" from="Button Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button Control/RedButton" to="." method="_on_red_button_pressed"]
+[connection signal="pressed" from="Button Control/RedButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button Control/BlueButton" to="." method="_on_blue_button_pressed"]
+[connection signal="pressed" from="Button Control/BlueButton" to="." method="_on_texture_button_pressed"]
 [connection signal="timeout" from="fade_transition/FadeTimer" to="." method="_on_fade_timer_timeout"]

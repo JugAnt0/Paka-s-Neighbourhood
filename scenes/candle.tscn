@@ -33,19 +33,13 @@ color = Color(0.9843137, 0.38039216, 0.20784314, 1)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ctofe")
 region_enabled = true
-region_rect = Rect2(164, 39, 5, 9)
+region_rect = Rect2(148, 39, 5, 9)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 z_index = -1
 position = Vector2(0, -4)
 color = Color(0.9087037, 0.34569088, 0.1869978, 1)
-energy = 0.38
+energy = 0.1
 shadow_enabled = true
 shadow_color = Color(0.07058824, 0.07058824, 0.07058824, 0.827451)
 texture = SubResource("GradientTexture2D_ije2b")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.9098039, 0.34509805, 0.1882353, 1)
-energy = 0.1
-blend_mode = 1
-max_distance = 3785.0
