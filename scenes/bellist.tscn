@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://cjicxnktuy344"]
+[gd_scene load_steps=20 format=3 uid="uid://cjicxnktuy344"]
 
 [ext_resource type="Texture2D" uid="uid://c6e7l2l6hpntn" path="res://assets/sprites/Orange cat-Sheet.png" id="1_d13ck"]
+[ext_resource type="Script" uid="uid://5trpx85fkehj" path="res://script/bellist.gd" id="1_kts4y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kts4y"]
 atlas = ExtResource("1_d13ck")
@@ -125,12 +126,18 @@ size = Vector2(23, 17.75)
 
 [node name="Bellist" type="CharacterBody2D"]
 input_pickable = true
+script = ExtResource("1_kts4y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-6, 0)
+position = Vector2(-7, 0)
 sprite_frames = SubResource("SpriteFrames_harxp")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.125)
 shape = SubResource("RectangleShape2D_m8psf")
+
+[node name="StateTimer" type="Timer" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

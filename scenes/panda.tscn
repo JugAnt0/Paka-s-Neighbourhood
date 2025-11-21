@@ -1,6 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://7ukx5nl2km3n"]
+[gd_scene load_steps=23 format=3 uid="uid://7ukx5nl2km3n"]
 
 [ext_resource type="Texture2D" uid="uid://cqlbk6uffd80a" path="res://assets/sprites/Black cat-Sheet.png" id="1_h3ib2"]
+[ext_resource type="Script" uid="uid://cgm0gw6kxac57" path="res://script/panda.gd" id="1_xyeg1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whtoq"]
+atlas = ExtResource("1_h3ib2")
+region = Rect2(40, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyeg1"]
 atlas = ExtResource("1_h3ib2")
@@ -10,9 +15,9 @@ region = Rect2(0, 32, 40, 32)
 atlas = ExtResource("1_h3ib2")
 region = Rect2(40, 32, 40, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_whtoq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3ib2"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(40, 32, 40, 32)
+region = Rect2(80, 0, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_265ov"]
 atlas = ExtResource("1_h3ib2")
@@ -74,21 +79,29 @@ region = Rect2(400, 0, 40, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_whtoq")
+}],
+"loop": true,
+"name": &"sit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xyeg1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_228n7")
 }],
 "loop": false,
-"name": &"sit",
+"name": &"sit_down",
 "speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_whtoq")
+"texture": SubResource("AtlasTexture_h3ib2")
 }],
 "loop": true,
-"name": &"sitted",
+"name": &"stand",
 "speed": 5.0
 }, {
 "frames": [{
@@ -102,7 +115,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_xspkt")
 }],
 "loop": false,
-"name": &"stand",
+"name": &"stand_up",
 "speed": 7.0
 }, {
 "frames": [{
@@ -145,15 +158,27 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gam3p"]
-size = Vector2(18, 12)
+size = Vector2(29, 16)
 
 [node name="Panda" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_xyeg1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_n7l22")
-animation = &"sitted"
-autoplay = "walk"
+animation = &"stand"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, 1)
+position = Vector2(3.5, 0)
 shape = SubResource("RectangleShape2D_gam3p")
+
+[node name="StateTimer" type="Timer" parent="."]
+
+[connection signal="editor_state_changed" from="." to="." method="_on_editor_state_changed"]
+[connection signal="mouse_entered" from="." to="." method="_on_panda_mouse_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_panda_mouse_exited"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]
