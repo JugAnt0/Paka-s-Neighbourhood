@@ -83,7 +83,6 @@ texture_normal = ExtResource("7_4wrcy")
 texture_hover = ExtResource("8_65nvh")
 
 [node name="fade_transition" parent="." instance=ExtResource("10_441kp")]
-visible = false
 
 [node name="FadeTimer" type="Timer" parent="fade_transition"]
 one_shot = true
