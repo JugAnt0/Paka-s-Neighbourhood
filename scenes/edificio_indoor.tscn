@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b01mrnb48n1yq"]
+[gd_scene load_steps=10 format=4 uid="uid://b01mrnb48n1yq"]
 
 [ext_resource type="Texture2D" uid="uid://b0yp57dmp1r23" path="res://assets/sprites/inside-house.png" id="1_2o1dq"]
 [ext_resource type="Script" uid="uid://dg8wnxviph041" path="res://script/edificio_indoor.gd" id="1_u24cm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://colngi77evrn3" path="res://scenes/candle.tscn" id="3_2ners"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="4_ytaok"]
 [ext_resource type="PackedScene" uid="uid://cwp0cvtrp30pq" path="res://scenes/lightbulb.tscn" id="5_ytaok"]
+[ext_resource type="PackedScene" uid="uid://lg4mbbm5ly2c" path="res://scenes/flora.tscn" id="7_orac0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u24cm"]
 texture = ExtResource("1_2o1dq")
@@ -136,3 +137,7 @@ position = Vector2(24, -12)
 
 [node name="lightbulb5" parent="." instance=ExtResource("5_ytaok")]
 position = Vector2(152, -28)
+
+[node name="Flora" parent="." instance=ExtResource("7_orac0")]
+z_index = 5
+position = Vector2(-85, 39)

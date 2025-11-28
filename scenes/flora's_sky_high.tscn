@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://14s2l4fcxwho"]
+
+[ext_resource type="Script" uid="uid://chbbxu3kakosy" path="res://script/flora's_sky_high.gd" id="1_pwfd8"]
+
+[node name="flora\'s Sky High" type="Node2D"]
+script = ExtResource("1_pwfd8")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g5sv36kcp0il"
-path="res://.godot/imported/Black cat-Sheet.png-08afd552a4be9fb41933b27f69340db8.ctex"
+uid="uid://di4jucfim4a3i"
+path="res://.godot/imported/SkyHigh.png-9162585105edaf34218732b28df49219.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Black cat-Sheet.png"
-dest_files=["res://.godot/imported/Black cat-Sheet.png-08afd552a4be9fb41933b27f69340db8.ctex"]
+source_file="res://assets/sprites/sprites/BUTTONS/SkyHigh.png"
+dest_files=["res://.godot/imported/SkyHigh.png-9162585105edaf34218732b28df49219.ctex"]
 
 [params]
 

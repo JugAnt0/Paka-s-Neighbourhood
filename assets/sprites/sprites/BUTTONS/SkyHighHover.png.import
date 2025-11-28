@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6j4o1e8i3v2f"
-path="res://.godot/imported/PlayButton.png-ef6413fa36cd89c80483890da7d0902e.ctex"
+uid="uid://bpuuy0wjfvlwf"
+path="res://.godot/imported/SkyHighHover.png-05eaeb79d380cd2a059500454aba31f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/PlayButton.png"
-dest_files=["res://.godot/imported/PlayButton.png-ef6413fa36cd89c80483890da7d0902e.ctex"]
+source_file="res://assets/sprites/sprites/BUTTONS/SkyHighHover.png"
+dest_files=["res://.godot/imported/SkyHighHover.png-05eaeb79d380cd2a059500454aba31f8.ctex"]
 
 [params]
 
