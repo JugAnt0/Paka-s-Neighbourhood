@@ -4,7 +4,7 @@ var button_type = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$fade_transition/AnimationPlayer.play("fade_out")
-
+	SceneMemory.push_scene(scene_file_path)
 
 func _on_sky_high_pressed() -> void:
 	button_type = "SkyHigh"
@@ -27,5 +27,10 @@ func _on_fade_timer_timeout():
 		get_tree().change_scene_to_file("res://scenes/flora's_sky_high.tscn")
 		
 	elif button_type == "GoBack":
-		get_tree().change_scene_to_file("res://scenes/edificio_indoor.tscn")
+		
+		var previous_scene = SceneMemory.pop_scene()
+		if previous_scene != "":
+			get_tree().change_scene_to_file(previous_scene)
+
+
 	

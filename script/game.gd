@@ -12,6 +12,8 @@ func _on_bellist_mouse_entered() -> void:
 func _on_bellist_mouse_exited() -> void:
 	Input.set_custom_mouse_cursor(pointer, Input.CURSOR_ARROW, Vector2(16,16))
 
+func _ready() -> void:
+	SceneMemory.push_scene(scene_file_path)
 
 
 func _on_start_button_pressed():
