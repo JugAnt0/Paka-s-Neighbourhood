@@ -8,6 +8,8 @@ const SPEED = 100.0
 const JUMP_VELOCITY = -250.0
 
 
+
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -35,6 +37,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("jump")
 	
 	if direction:
+		
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)

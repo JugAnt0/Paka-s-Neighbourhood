@@ -7,7 +7,11 @@ func _ready() -> void:
 	SceneMemory.push_scene(scene_file_path)
 
 
-	
+func _on_rain_dodge_pressed() -> void:
+	button_type = "RainDodge"
+	$fade_transition.show()
+	$fade_transition/FadeTimer.start()
+	$fade_transition/AnimationPlayer.play("fade_in")
 
 
 func _on_go_back_pressed() -> void:
@@ -24,3 +28,6 @@ func _on_fade_timer_timeout():
 		var previous_scene = SceneMemory.pop_scene()
 		if previous_scene != "":
 			get_tree().change_scene_to_file(previous_scene)
+		
+	elif button_type == "RainDodge":
+		get_tree().change_scene_to_file("res://scenes/bellist's_rain_dodge.tscn")

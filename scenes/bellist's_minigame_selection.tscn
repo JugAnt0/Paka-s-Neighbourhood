@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://co8pitapxi73s"]
+[gd_scene load_steps=12 format=4 uid="uid://co8pitapxi73s"]
 
 [ext_resource type="Script" uid="uid://3inedt7vwkw7" path="res://script/camera_2d.gd" id="1_4qvfl"]
 [ext_resource type="Script" uid="uid://br116txbp8f81" path="res://script/bellist's_minigame_selection.gd" id="1_jeb4f"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dl8fs7d20bvl" path="res://assets/sprites/sprites/BUTTONS/Go_Back.png" id="5_wtiu8"]
 [ext_resource type="Texture2D" uid="uid://boqv7aiafy7od" path="res://assets/sprites/sprites/BUTTONS/Go_Back_hover.png" id="6_fxyhv"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="7_8ihno"]
+[ext_resource type="Texture2D" uid="uid://dju7ed146ga4x" path="res://assets/sprites/sprites/BUTTONS/RainDodge.png" id="7_p740g"]
+[ext_resource type="Texture2D" uid="uid://cp025kl6h3jff" path="res://assets/sprites/sprites/BUTTONS/RainDodgeHover.png" id="8_wtiu8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6p7a7"]
 texture = ExtResource("2_3x65y")
@@ -67,6 +69,14 @@ offset_bottom = 22.0
 texture_normal = ExtResource("5_wtiu8")
 texture_hover = ExtResource("6_fxyhv")
 
+[node name="RainDodge" type="TextureButton" parent="Buttons"]
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 66.0
+offset_bottom = 1.0
+texture_normal = ExtResource("7_p740g")
+texture_hover = ExtResource("8_wtiu8")
+
 [node name="fade_transition" parent="." instance=ExtResource("7_8ihno")]
 visible = false
 
@@ -74,4 +84,5 @@ visible = false
 one_shot = true
 
 [connection signal="pressed" from="Buttons/GoBack" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="Buttons/RainDodge" to="." method="_on_rain_dodge_pressed"]
 [connection signal="timeout" from="fade_transition/FadeTimer" to="." method="_on_fade_timer_timeout"]
