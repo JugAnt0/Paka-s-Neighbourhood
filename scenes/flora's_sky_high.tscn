@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://14s2l4fcxwho"]
+[gd_scene load_steps=34 format=4 uid="uid://14s2l4fcxwho"]
 
 [ext_resource type="Script" uid="uid://chbbxu3kakosy" path="res://script/flora's_sky_high.gd" id="1_pwfd8"]
 [ext_resource type="Texture2D" uid="uid://b2ofr8yqadjrn" path="res://assets/sprites/Black n white cat-Sheet.png" id="2_0i4hu"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bhdlkw08wy734" path="res://script/camera_2d_jumper.gd" id="9_7bjf3"]
 [ext_resource type="Texture2D" uid="uid://bxsllr2t210cq" path="res://assets/sprites/sprites/paka's petting sim/SkyBackground(1).png" id="10_h18jk"]
 [ext_resource type="Texture2D" uid="uid://bo5uihryhc1js" path="res://assets/sprites/sprites/paka's petting sim/SkyBackground(2).png" id="11_0tddj"]
+[ext_resource type="PackedScene" uid="uid://63vravh4dbiq" path="res://scenes/background.tscn" id="12_0tddj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrunn"]
 atlas = ExtResource("2_0i4hu")
@@ -200,7 +201,7 @@ script = ExtResource("2_rdp1e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flora"]
 sprite_frames = SubResource("SpriteFrames_rdp1e")
-animation = &"running"
+animation = &"jumping"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flora"]
 position = Vector2(2, 2)
@@ -254,7 +255,7 @@ position_smoothing_enabled = true
 script = ExtResource("9_7bjf3")
 
 [node name="skybackground(1)" type="Sprite2D" parent="."]
-z_index = -5
+z_index = -51
 texture_repeat = 2
 position = Vector2(-1, -93)
 texture = ExtResource("10_h18jk")
@@ -264,6 +265,9 @@ z_index = -6
 texture_repeat = 2
 position = Vector2(-1, -347)
 texture = ExtResource("11_0tddj")
+
+[node name="background" parent="." instance=ExtResource("12_0tddj")]
+position = Vector2(345, -5)
 
 [connection signal="body_entered" from="PlatformStill/Area2D" to="Flora" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="PlatformMoving/Area2D" to="Flora" method="_on_area_2d_body_entered"]

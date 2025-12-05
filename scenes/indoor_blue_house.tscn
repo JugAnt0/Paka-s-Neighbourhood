@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://c2mdhj2si8wyb"]
+[gd_scene load_steps=14 format=4 uid="uid://c2mdhj2si8wyb"]
 
 [ext_resource type="Script" uid="uid://c1otqgqbqqo11" path="res://script/indoor_blue_house.gd" id="1_dausc"]
 [ext_resource type="Texture2D" uid="uid://b0yp57dmp1r23" path="res://assets/sprites/inside-house.png" id="1_prnd0"]
@@ -90,6 +90,16 @@ texture = ExtResource("1_prnd0")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_dausc")
 
+[sub_resource type="Gradient" id="Gradient_vi46q"]
+offsets = PackedFloat32Array(0, 0.61333334)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y6e4s"]
+gradient = SubResource("Gradient_vi46q")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.52803737, 0)
+
 [node name="indoor_blue_house" type="Node2D"]
 script = ExtResource("1_dausc")
 
@@ -154,7 +164,15 @@ offset_bottom = 687.0
 position = Vector2(-80, 24)
 
 [node name="Door" parent="." instance=ExtResource("8_vi46q")]
-position = Vector2(-288, 16)
+position = Vector2(-289, 8)
+scale = Vector2(1.5, 1.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Door"]
 texture = ExtResource("9_y6e4s")
+
+[node name="PointLight2D" type="PointLight2D" parent="Door"]
+position = Vector2(3.9999998, 1.3333333)
+scale = Vector2(0.6, 0.6)
+color = Color(0.78083867, 0.97724205, 0.99609655, 0.7490196)
+energy = 0.3
+texture = SubResource("GradientTexture2D_y6e4s")

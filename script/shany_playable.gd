@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
 @export var max_charge_time: float = 1.5
 @export var min_jump_force: float = 150.0
 @export var max_jump_force: float = 1200.0
@@ -11,11 +13,14 @@ var charging: bool = false
 var charge_timer: float = 0.0
 var direction: int = 1 
 func _physics_process(delta: float) -> void:
+	
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		anim.play("in_air")
 		
 	if is_on_floor():
-		
+		anim.play("sit")
 		if abs(velocity.x) > 0.0:
 			var stop_amount := friction * delta
 			if abs(velocity.x) <= stop_amount:
@@ -47,5 +52,9 @@ func _physics_process(delta: float) -> void:
 	if charging:
 		charge_timer += delta
 		charge_timer = min(charge_timer, max_charge_time)
-		
+	
+	if direction >0:
+		anim.flip_h = false
+	elif direction < 0:
+		anim.flip_h = true
 	move_and_slide()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://0wd6ww2t7od8"]
+[gd_scene load_steps=43 format=4 uid="uid://0wd6ww2t7od8"]
 
 [ext_resource type="Script" uid="uid://cndo3fdlfa4pq" path="res://script/panda's_automatic_platformer.gd" id="1_oyc3t"]
 [ext_resource type="Texture2D" uid="uid://c41jkf66ip1it" path="res://assets/sprites/ground.png" id="1_yk78b"]
@@ -8,10 +8,31 @@
 [ext_resource type="Script" uid="uid://baiqektw05ynr" path="res://script/spikes.gd" id="3_lualr"]
 [ext_resource type="Texture2D" uid="uid://mcyisypobpom" path="res://assets/sprites/waterthingy.png" id="4_vfnal"]
 [ext_resource type="Texture2D" uid="uid://b6edpe3dowbeo" path="res://assets/sprites/spikes.png" id="5_asp4k"]
+[ext_resource type="PackedScene" uid="uid://63vravh4dbiq" path="res://scenes/background.tscn" id="9_vixkd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y2f1n"]
 radius = 2.0
 height = 10.0
+
+[sub_resource type="Gradient" id="Gradient_vixkd"]
+offsets = PackedFloat32Array(0, 0.9066667)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4y3pj"]
+gradient = SubResource("Gradient_vixkd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.49532712, 0)
+
+[sub_resource type="Gradient" id="Gradient_0ft5y"]
+offsets = PackedFloat32Array(0.08, 0.87333333)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w8qy5"]
+gradient = SubResource("Gradient_0ft5y")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.45794392, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqobb"]
 texture = ExtResource("1_yk78b")
@@ -258,6 +279,12 @@ texture = ExtResource("4_vfnal")
 position = Vector2(43, 1)
 shape = SubResource("CapsuleShape2D_y2f1n")
 
+[node name="PointLight2D" type="PointLight2D" parent="ObstacleTemplates/waterthingy"]
+position = Vector2(43, 2)
+color = Color(1, 0.6313726, 0.6627451, 1)
+energy = 0.2
+texture = SubResource("GradientTexture2D_4y3pj")
+
 [node name="spikes" type="Area2D" parent="ObstacleTemplates"]
 visible = false
 z_index = 4
@@ -273,6 +300,12 @@ texture = ExtResource("5_asp4k")
 position = Vector2(-0.26041698, 0.7687503)
 scale = Vector2(1.0208334, 0.8124999)
 polygon = PackedVector2Array(8, 8, 8, 5, -7, 5, -7, 8)
+
+[node name="PointLight2D" type="PointLight2D" parent="ObstacleTemplates/spikes"]
+position = Vector2(1, 7)
+color = Color(1, 0.6310836, 0.66245806, 1)
+energy = 0.2
+texture = SubResource("GradientTexture2D_w8qy5")
 
 [node name="Ground1" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -320,8 +353,43 @@ one_shot = true
 wait_time = 2.0
 autostart = true
 
+[node name="background1" parent="." instance=ExtResource("9_vixkd")]
+z_index = 1
+position = Vector2(40, -24)
+
+[node name="back" parent="background1" index="0"]
+visible = true
+repeat_times = 20
+
+[node name="mid" parent="background1" index="1"]
+scroll_scale = Vector2(0.5, 1)
+repeat_times = 20
+
+[node name="front" parent="background1" index="2"]
+scroll_scale = Vector2(1, 1)
+repeat_times = 20
+
+[node name="background2" parent="." instance=ExtResource("9_vixkd")]
+z_index = 1
+position = Vector2(1064, -24)
+
+[node name="back" parent="background2" index="0"]
+visible = true
+repeat_times = 20
+
+[node name="mid" parent="background2" index="1"]
+scroll_scale = Vector2(0.5, 1)
+repeat_times = 22
+
+[node name="front" parent="background2" index="2"]
+scroll_scale = Vector2(1, 1)
+repeat_times = 25
+
 [connection signal="body_entered" from="ObstacleTemplates/waterthingy" to="ObstacleTemplates/waterthingy" method="_on_body_entered"]
 [connection signal="body_entered" from="ObstacleTemplates/spikes" to="ObstacleTemplates/spikes" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="Pandolfi" method="_on_death_timer_timeout"]
 [connection signal="timeout" from="SpeedTimer" to="." method="_on_speed_timer_timeout"]
+
+[editable path="background1"]
+[editable path="background2"]
