@@ -3,7 +3,7 @@ extends Node2D
 @onready var obstacles_container = $obstacles
 @onready var spike_template = $ObstacleTemplates/spikes
 @onready var water_template = $ObstacleTemplates/waterthingy
-
+@onready var gui: CanvasLayer = $"/root/FishManager/GUI"
 @onready var back1: Parallax2D = $background1/back
 
 @onready var front1: Parallax2D = $background1/front
@@ -50,7 +50,7 @@ func _ready() -> void:
 	var width = get_tilemap_width(g1)
 	g1.position = Vector2(0, 0)
 	g2.position = Vector2(width, 0)
-	
+	gui.show()
 	
 	
 func _process(delta: float) -> void:

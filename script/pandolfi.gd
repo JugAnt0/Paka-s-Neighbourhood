@@ -4,6 +4,8 @@ const GRAVITY : int = 500
 const JUMPS_PEED : int = -150
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $"../DeathTimer"
+@onready var gui: CanvasLayer = $"/root/FishManager/GUI"
+
 func _physics_process(delta):
 	
 	velocity.y += GRAVITY * delta
@@ -25,7 +27,8 @@ func _physics_process(delta):
 func die():
 	Engine.time_scale = 0.5
 	timer.start()
-
+	
 func _on_death_timer_timeout():
+	gui.hide()
 	Engine.time_scale = 1
 	get_tree().change_scene_to_file("res://scenes/panda's_automatic_platformer's_death_scene.tscn")

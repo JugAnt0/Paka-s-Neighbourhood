@@ -8,4 +8,17 @@ script = ExtResource("1_sj8nf")
 
 [node name="GUI" parent="." instance=ExtResource("2_m4ddb")]
 
+[node name="Fish_Counter2" parent="GUI" index="0"]
+offset_left = 886.0
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="Fish_Counter" parent="GUI" index="1"]
+offset_left = 697.0
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="Sprite2D" parent="GUI" index="2"]
+position = Vector2(1048, 76)
+
 [editable path="GUI"]

@@ -4,6 +4,7 @@ extends Area2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var anim_timer: Timer = $AnimTimer
 @onready var speed_timer: Timer = $"../SpeedTimer"
+@onready var gui: CanvasLayer = $"/root/FishManager/GUI"
 
 var velocity = Vector2.ZERO
 
@@ -30,7 +31,7 @@ func _on_body_entered(body):
 
 
 func _on_death_timer_timeout() -> void:
-	
+	gui.hide()
 	Engine.time_scale = 1
 	get_tree().change_scene_to_file("res://scenes/node_2d_bellist's_rain_dodge_death_scene.tscn")
 

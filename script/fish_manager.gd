@@ -1,9 +1,11 @@
 extends Node
 var fish = 0
+@onready var fish_counter: Label = $"/root/FishManager/GUI/Fish_Counter"
+@onready var sprite: Sprite2D = $"/root/FishManager/GUI/Sprite2D"
 
-@onready var fish_counter: Label = $GUI/Fish_Counter
+@onready var fish_counter_2: Label = $"/root/FishManager/GUI/Fish_Counter2"
 
-@onready var fish_counter_2: Label = $GUI/Fish_Counter2
+
 
 
 func _process(_delta: float) -> void:
