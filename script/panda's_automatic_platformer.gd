@@ -1,4 +1,5 @@
 extends Node2D
+@onready var fish: AnimatableBody2D = $fish
 
 @onready var obstacles_container = $obstacles
 @onready var spike_template = $ObstacleTemplates/spikes
@@ -21,7 +22,6 @@ var bg_width = 256
 @onready var g2 = $Ground2
 
 var scroll_speed := 75.0
-
 
 
 func spawn_obstacle() -> void:

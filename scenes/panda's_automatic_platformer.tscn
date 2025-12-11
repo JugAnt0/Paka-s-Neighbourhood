@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://0wd6ww2t7od8"]
+[gd_scene load_steps=44 format=4 uid="uid://0wd6ww2t7od8"]
 
 [ext_resource type="Script" uid="uid://cndo3fdlfa4pq" path="res://script/panda's_automatic_platformer.gd" id="1_oyc3t"]
 [ext_resource type="Texture2D" uid="uid://c41jkf66ip1it" path="res://assets/sprites/ground.png" id="1_yk78b"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://mcyisypobpom" path="res://assets/sprites/waterthingy.png" id="4_vfnal"]
 [ext_resource type="Texture2D" uid="uid://b6edpe3dowbeo" path="res://assets/sprites/spikes.png" id="5_asp4k"]
 [ext_resource type="PackedScene" uid="uid://63vravh4dbiq" path="res://scenes/background.tscn" id="9_vixkd"]
+[ext_resource type="PackedScene" uid="uid://bhk28bt8n75pa" path="res://scenes/fish.tscn" id="10_4y3pj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y2f1n"]
 radius = 2.0
@@ -384,6 +385,8 @@ repeat_times = 22
 [node name="front" parent="background2" index="2"]
 scroll_scale = Vector2(1, 1)
 repeat_times = 25
+
+[node name="fish" parent="." instance=ExtResource("10_4y3pj")]
 
 [connection signal="body_entered" from="ObstacleTemplates/waterthingy" to="ObstacleTemplates/waterthingy" method="_on_body_entered"]
 [connection signal="body_entered" from="ObstacleTemplates/spikes" to="ObstacleTemplates/spikes" method="_on_body_entered"]

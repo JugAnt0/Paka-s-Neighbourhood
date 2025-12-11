@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://6fbm3euyryor"]
+[gd_scene load_steps=29 format=4 uid="uid://6fbm3euyryor"]
 
 [ext_resource type="Script" uid="uid://bn6dby6jckn38" path="res://script/start_game.gd" id="1_tq2sd"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="2_2aiwh"]
@@ -14,6 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dgrmdreumpiua" path="res://assets/sprites/bLUEhOUSEhover.png" id="6_oyaqm"]
 [ext_resource type="Texture2D" uid="uid://cp54h45cu4pv4" path="res://assets/sprites/YellowHouse.png" id="7_oyaqm"]
 [ext_resource type="Texture2D" uid="uid://4su6quuiimuv" path="res://assets/sprites/YellowHouseHover.png" id="8_g0qae"]
+[ext_resource type="Texture2D" uid="uid://bqn6v8atowo4e" path="res://assets/sprites/sprites/BUTTONS/bLUEhOUSELocked.png" id="11_4ytee"]
+[ext_resource type="Texture2D" uid="uid://bv1janvtar5x3" path="res://assets/sprites/sprites/BUTTONS/lock.png" id="12_jit1l"]
+[ext_resource type="Texture2D" uid="uid://b5gkwxq61iour" path="res://assets/sprites/sprites/BUTTONS/YellowHouseLocked.png" id="13_vpf27"]
+[ext_resource type="Texture2D" uid="uid://dl8fs7d20bvl" path="res://assets/sprites/sprites/BUTTONS/Go_Back.png" id="18_7wif6"]
+[ext_resource type="Texture2D" uid="uid://boqv7aiafy7od" path="res://assets/sprites/sprites/BUTTONS/Go_Back_hover.png" id="19_pfjci"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcjs8"]
 texture = ExtResource("4_qr1nj")
@@ -118,7 +123,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="StartGame" type="Node2D"]
-position = Vector2(-15, 0)
 script = ExtResource("1_tq2sd")
 
 [node name="background" type="Node2D" parent="."]
@@ -207,25 +211,48 @@ offset_bottom = 48.0
 texture_normal = ExtResource("5_4ty0x")
 texture_hover = ExtResource("6_oyaqm")
 
-[node name="PointLight2D" type="PointLight2D" parent="Button Control/BlueButton"]
+[node name="PriceLabel" type="Label" parent="Button Control/BlueButton"]
+z_index = 1
+layout_mode = 0
+offset_left = 68.0
+offset_top = 26.0
+offset_right = 108.0
+offset_bottom = 42.0
+text = "10"
+
+[node name="Silhouette" type="Sprite2D" parent="Button Control/BlueButton"]
+position = Vector2(56, 32)
+texture = ExtResource("11_4ytee")
+
+[node name="LockIcon" type="Sprite2D" parent="Button Control/BlueButton"]
+z_index = 1
+position = Vector2(77, 48)
+texture = ExtResource("12_jit1l")
+region_enabled = true
+region_rect = Rect2(0, 0, 35, 32)
+
+[node name="lights" type="Node2D" parent="Button Control/BlueButton"]
+visible = false
+
+[node name="L" type="PointLight2D" parent="Button Control/BlueButton/lights"]
 position = Vector2(75, 37)
 color = Color(0.89041555, 0.61806047, 0.4183951, 1)
 energy = 0.2
 texture = SubResource("GradientTexture2D_g0qae")
 
-[node name="PointLight2D2" type="PointLight2D" parent="Button Control/BlueButton"]
+[node name="L2" type="PointLight2D" parent="Button Control/BlueButton/lights"]
 position = Vector2(61, 50)
 color = Color(0.6313726, 1, 1, 1)
 energy = 0.2
 texture = SubResource("GradientTexture2D_g0qae")
 
-[node name="PointLight2D3" type="PointLight2D" parent="Button Control/BlueButton"]
+[node name="L3" type="PointLight2D" parent="Button Control/BlueButton/lights"]
 position = Vector2(90, 51)
 color = Color(0.6313726, 1, 1, 1)
 energy = 0.2
 texture = SubResource("GradientTexture2D_g0qae")
 
-[node name="PointLight2D4" type="PointLight2D" parent="Button Control/BlueButton"]
+[node name="L4" type="PointLight2D" parent="Button Control/BlueButton/lights"]
 position = Vector2(35, 58)
 color = Color(0.6313726, 1, 1, 1)
 energy = 0.25
@@ -240,19 +267,43 @@ offset_bottom = 96.0
 texture_normal = ExtResource("7_oyaqm")
 texture_hover = ExtResource("8_g0qae")
 
-[node name="PointLight2D" type="PointLight2D" parent="Button Control/YellowButton"]
+[node name="Silhouette" type="Sprite2D" parent="Button Control/YellowButton"]
+position = Vector2(40, 40)
+texture = ExtResource("13_vpf27")
+
+[node name="LockIcon" type="Sprite2D" parent="Button Control/YellowButton"]
+z_index = 1
+position = Vector2(41, 58)
+texture = ExtResource("12_jit1l")
+region_enabled = true
+region_rect = Rect2(0, 0, 34, 32)
+
+[node name="PriceLabel" type="Label" parent="Button Control/YellowButton"]
+z_index = 1
+layout_mode = 0
+offset_left = 31.0
+offset_top = 35.0
+offset_right = 71.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 16
+text = "50"
+
+[node name="Lights" type="Node2D" parent="Button Control/YellowButton"]
+visible = false
+
+[node name="L" type="PointLight2D" parent="Button Control/YellowButton/Lights"]
 position = Vector2(40, 31)
 color = Color(0.6117647, 0.54509807, 0.85882354, 1)
 energy = 0.5
 texture = SubResource("GradientTexture2D_fr1gt")
 
-[node name="PointLight2D2" type="PointLight2D" parent="Button Control/YellowButton"]
+[node name="L2" type="PointLight2D" parent="Button Control/YellowButton/Lights"]
 position = Vector2(25, 64)
 color = Color(0.6117647, 0.54509807, 0.85882354, 1)
 energy = 0.5
 texture = SubResource("GradientTexture2D_fr1gt")
 
-[node name="PointLight2D3" type="PointLight2D" parent="Button Control/YellowButton"]
+[node name="L3" type="PointLight2D" parent="Button Control/YellowButton/Lights"]
 position = Vector2(55, 62)
 color = Color(0.6117647, 0.54509807, 0.85882354, 1)
 energy = 0.5
@@ -277,6 +328,17 @@ position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 script = ExtResource("4_mc8qq")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 840.0
+offset_top = 538.0
+offset_right = 904.0
+offset_bottom = 578.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("18_7wif6")
+texture_hover = ExtResource("19_pfjci")
+
 [connection signal="pressed" from="Button Control/RedButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button Control/RedButton" to="." method="_on_red_button_pressed"]
 [connection signal="pressed" from="Button Control/BlueButton" to="." method="_on_texture_button_pressed"]
@@ -284,3 +346,4 @@ script = ExtResource("4_mc8qq")
 [connection signal="pressed" from="Button Control/YellowButton" to="." method="_on_edificio_button_pressed"]
 [connection signal="pressed" from="Button Control/YellowButton" to="." method="_on_yellow_button_pressed"]
 [connection signal="timeout" from="fade_transition/FadeTimer" to="." method="_on_fade_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_texture_button_pressed"]
