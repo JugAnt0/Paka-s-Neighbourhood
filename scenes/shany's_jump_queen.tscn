@@ -223,7 +223,7 @@ script = ExtResource("1_qdygs")
 
 [node name="Shany" type="CharacterBody2D" parent="." groups=["Players"]]
 z_index = 5
-position = Vector2(93, -2009)
+position = Vector2(0, -7)
 script = ExtResource("1_2spjv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shany"]

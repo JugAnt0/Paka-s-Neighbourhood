@@ -18,7 +18,8 @@ func _ready() -> void:
 func _on_black_d_b_pressed() -> void:
 	if FishManager.houses["blue"] == true:
 		get_tree().change_scene_to_file("res://scenes/panda's_minigame_selection.tscn")
-	
+	else:
+		lockB.get_node("AnimationPlayer").play("locking")
 	
 func _on_orange_d_b_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/bellist's_minigame_selection.tscn")
@@ -28,7 +29,9 @@ func _on_black_n_white_d_b_pressed() -> void:
 	if FishManager.houses["yellow"] == true:
 		
 		get_tree().change_scene_to_file("res://scenes/flora's_minigame_selection.tscn")
-	
+	else:
+		lockBW.get_node("AnimationPlayer").play("locking")
+
 	
 func _on_siamese_d_b_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/shanny's_minigame_selection.tscn")

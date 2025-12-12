@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://d4f06biorh85l"]
+[gd_scene load_steps=46 format=4 uid="uid://d4f06biorh85l"]
 
 [ext_resource type="Script" uid="uid://opa1bqwjlkko" path="res://script/bellist_playable.gd" id="1_3v3wg"]
 [ext_resource type="Script" uid="uid://blxk1tgbot4t1" path="res://script/bellist's_rain_dodge.gd" id="1_g1ssb"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://3uwitgddhq66" path="res://assets/sprites/sprites/paka's petting sim/SkyBackground(3).png" id="7_auh05"]
 [ext_resource type="Texture2D" uid="uid://npjalupp7p2b" path="res://assets/sprites/sprites/paka's petting sim/back-mid.png" id="8_671af"]
 [ext_resource type="Texture2D" uid="uid://dly7l4djtvjwl" path="res://assets/sprites/sprites/paka's petting sim/back-front.png" id="9_2a2jy"]
+[ext_resource type="Script" uid="uid://7nfl27i8f7wc" path="res://script/falling_fish.gd" id="10_l1vw3"]
+[ext_resource type="Texture2D" uid="uid://gwet2ke35s2e" path="res://assets/sprites/sprites/paka's petting sim/pescadito.png" id="11_kbmpn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_auh05"]
 atlas = ExtResource("1_gfc7m")
@@ -310,6 +312,9 @@ texture = ExtResource("2_3v3wg")
 [sub_resource type="TileSet" id="TileSet_q5xh5"]
 sources/0 = SubResource("TileSetAtlasSource_auh05")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7uswa"]
+radius = 6.0827627
+
 [node name="bellist\'s rain dodge" type="Node2D"]
 script = ExtResource("1_g1ssb")
 
@@ -353,7 +358,6 @@ animation = &"in_air"
 autoplay = "in_air"
 
 [node name="AnimTimer" type="Timer" parent="Rain"]
-wait_time = 1.5
 
 [node name="grounds n backs" type="Node2D" parent="."]
 
@@ -428,8 +432,25 @@ ignore_time_scale = true
 wait_time = 20.0
 autostart = true
 
+[node name="falling_fish" type="Area2D" parent="."]
+visible = false
+position = Vector2(-191, -146)
+script = ExtResource("10_l1vw3")
+
+[node name="Sprite2D" type="Sprite2D" parent="falling_fish"]
+texture = ExtResource("11_kbmpn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling_fish"]
+shape = SubResource("CircleShape2D_7uswa")
+
+[node name="FishTimer" type="Timer" parent="falling_fish"]
+process_mode = 4
+wait_time = 0.5
+
 [connection signal="timeout" from="Spawner/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="body_entered" from="Rain" to="Rain" method="_on_body_entered"]
 [connection signal="timeout" from="Rain/AnimTimer" to="Rain" method="_on_anim_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="Rain" method="_on_death_timer_timeout"]
 [connection signal="timeout" from="SpeedTimer" to="Rain" method="_on_speed_timer_timeout"]
+[connection signal="body_entered" from="falling_fish" to="falling_fish" method="_on_body_entered"]
+[connection signal="timeout" from="falling_fish/FishTimer" to="falling_fish" method="_on_fish_timer_timeout"]

@@ -76,7 +76,7 @@ func _on_yellow_button_pressed() -> void:
 	$fade_transition/FadeTimer.start()
 	$fade_transition/AnimationPlayer.play("fade_in")
 		
-func _on_texture_button_pressed() -> void:
+func _on_go_back_pressed() -> void:
 	button_type = "go_back"
 	$fade_transition.show()
 	$fade_transition/FadeTimer.start()
