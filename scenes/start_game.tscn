@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://6fbm3euyryor"]
+[gd_scene load_steps=36 format=4 uid="uid://6fbm3euyryor"]
 
 [ext_resource type="Script" uid="uid://bn6dby6jckn38" path="res://script/start_game.gd" id="1_tq2sd"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="2_2aiwh"]
@@ -17,8 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bqn6v8atowo4e" path="res://assets/sprites/sprites/BUTTONS/bLUEhOUSELocked.png" id="11_4ytee"]
 [ext_resource type="Texture2D" uid="uid://bv1janvtar5x3" path="res://assets/sprites/sprites/BUTTONS/lock.png" id="12_jit1l"]
 [ext_resource type="Texture2D" uid="uid://b5gkwxq61iour" path="res://assets/sprites/sprites/BUTTONS/YellowHouseLocked.png" id="13_vpf27"]
-[ext_resource type="Texture2D" uid="uid://dl8fs7d20bvl" path="res://assets/sprites/sprites/BUTTONS/Go_Back.png" id="18_7wif6"]
-[ext_resource type="Texture2D" uid="uid://boqv7aiafy7od" path="res://assets/sprites/sprites/BUTTONS/Go_Back_hover.png" id="19_pfjci"]
+[ext_resource type="PackedScene" uid="uid://cwfgkxlq6o13x" path="res://scenes/go_back.tscn" id="18_jit1l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcjs8"]
 texture = ExtResource("4_qr1nj")
@@ -202,6 +201,33 @@ fill = 1
 fill_from = Vector2(0.5046729, 0.5)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="Animation" id="Animation_8ypdy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(41, 58)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_i1nck"]
 resource_name = "locking"
 length = 0.4
@@ -228,33 +254,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -0.06981317, 0.06981317, 0.0, -0.06981317, 0.06981317, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_8ypdy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(41, 58)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_0d1lr"]
@@ -517,16 +516,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 script = ExtResource("4_mc8qq")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GoBack" type="TextureButton" parent="CanvasLayer"]
-offset_left = 840.0
-offset_top = 538.0
-offset_right = 904.0
-offset_bottom = 578.0
-scale = Vector2(5, 5)
-texture_normal = ExtResource("18_7wif6")
-texture_hover = ExtResource("19_pfjci")
+[node name="GO_BACK" parent="." instance=ExtResource("18_jit1l")]
 
 [connection signal="pressed" from="Button Control/RedButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button Control/RedButton" to="." method="_on_red_button_pressed"]
@@ -537,4 +527,3 @@ texture_hover = ExtResource("19_pfjci")
 [connection signal="pressed" from="Button Control/YellowButton" to="." method="_on_yellow_button_pressed"]
 [connection signal="animation_finished" from="Button Control/YellowButton/LockIcon/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="fade_transition/FadeTimer" to="." method="_on_fade_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/GoBack" to="." method="_on_go_back_pressed"]

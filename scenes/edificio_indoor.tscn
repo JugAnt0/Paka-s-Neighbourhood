@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b01mrnb48n1yq"]
+[gd_scene load_steps=13 format=4 uid="uid://b01mrnb48n1yq"]
 
 [ext_resource type="Texture2D" uid="uid://b0yp57dmp1r23" path="res://assets/sprites/inside-house.png" id="1_2o1dq"]
 [ext_resource type="Script" uid="uid://dg8wnxviph041" path="res://script/edificio_indoor.gd" id="1_u24cm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d12fl1b235c3f" path="res://scenes/door.tscn" id="8_5exsn"]
 [ext_resource type="Texture2D" uid="uid://3wwfqsa1uttw" path="res://assets/sprites/sprites/paka's petting sim/yellow door.png" id="9_hm3mh"]
 [ext_resource type="PackedScene" uid="uid://dh8pdsq7kmxwp" path="res://scenes/shany.tscn" id="10_hm3mh"]
+[ext_resource type="PackedScene" uid="uid://cwfgkxlq6o13x" path="res://scenes/go_back.tscn" id="10_uijmp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u24cm"]
 texture = ExtResource("1_2o1dq")
@@ -151,3 +152,5 @@ texture = ExtResource("9_hm3mh")
 z_index = 5
 position = Vector2(53, 38)
 input_pickable = true
+
+[node name="GO_BACK" parent="." instance=ExtResource("10_uijmp")]

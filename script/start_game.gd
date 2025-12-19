@@ -9,6 +9,7 @@ extends Node2D
 @onready var lights_blue: Node2D = $"Button Control/BlueButton/lights"
 @onready var lockB: Sprite2D = $"Button Control/BlueButton/LockIcon"
 @onready var lockY: Sprite2D = $"Button Control/YellowButton/LockIcon"
+const m = preload("uid://deowjibv8av4d")
 
 func _ready() -> void:
 	sprite.position = Vector2(610, 78)
@@ -17,7 +18,7 @@ func _ready() -> void:
 	$fade_transition/AnimationPlayer.play("fade_out")
 	gui.show()
 	update_houses()
-	
+	SceneMemory.push_scene(scene_file_path)
 	
 
 
@@ -103,9 +104,19 @@ func _on_fade_timer_timeout() -> void:
 		get_tree().change_scene_to_file("res://scenes/edificio_indoor.tscn")
 		
 	elif button_type == "go_back":
+		Input.set_custom_mouse_cursor(POINTER, Input.CURSOR_ARROW, Vector2(16,16))
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "unlock":
 		update_houses()
+
+
+func _on_go_back_mouse_entered() -> void:
+	Input.set_custom_mouse_cursor(m, Input.CURSOR_ARROW, Vector2(16,16))
+
+const POINTER = preload("uid://dgjrvxgmrf0lq")
+
+func _on_go_back_mouse_exited() -> void:
+	Input.set_custom_mouse_cursor(POINTER, Input.CURSOR_ARROW, Vector2(16,16))

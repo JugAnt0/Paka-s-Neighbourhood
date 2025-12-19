@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+const m = preload("uid://deowjibv8av4d")
 
 @onready var anim := $AnimatedSprite2D
 @onready var timer := $StateTimer

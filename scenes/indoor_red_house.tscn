@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bghsulxafnt5r"]
+[gd_scene load_steps=14 format=4 uid="uid://bghsulxafnt5r"]
 
 [ext_resource type="Texture2D" uid="uid://b0yp57dmp1r23" path="res://assets/sprites/inside-house.png" id="1_g4ukx"]
 [ext_resource type="Script" uid="uid://ctc1oh1cc0sw3" path="res://script/indoor_red_house.gd" id="1_pabqj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://3inedt7vwkw7" path="res://script/camera_2d.gd" id="6_ymwsl"]
 [ext_resource type="PackedScene" uid="uid://d12fl1b235c3f" path="res://scenes/door.tscn" id="8_wsodm"]
 [ext_resource type="Texture2D" uid="uid://cldeflwmlea8t" path="res://assets/sprites/sprites/paka's petting sim/red door.png" id="9_f7asb"]
+[ext_resource type="PackedScene" uid="uid://cwfgkxlq6o13x" path="res://scenes/go_back.tscn" id="11_kjbe5"]
 [ext_resource type="PackedScene" uid="uid://lg4mbbm5ly2c" path="res://scenes/flora.tscn" id="11_n1kmv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8g7c7"]
@@ -154,3 +155,5 @@ texture = ExtResource("9_f7asb")
 
 [node name="Flora" parent="." instance=ExtResource("11_n1kmv")]
 position = Vector2(-9, -105)
+
+[node name="GO_BACK" parent="." instance=ExtResource("11_kjbe5")]

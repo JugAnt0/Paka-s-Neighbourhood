@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c2mdhj2si8wyb"]
+[gd_scene load_steps=15 format=4 uid="uid://c2mdhj2si8wyb"]
 
 [ext_resource type="Script" uid="uid://c1otqgqbqqo11" path="res://script/indoor_blue_house.gd" id="1_dausc"]
 [ext_resource type="Texture2D" uid="uid://b0yp57dmp1r23" path="res://assets/sprites/inside-house.png" id="1_prnd0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://7ukx5nl2km3n" path="res://scenes/panda.tscn" id="7_dx6a8"]
 [ext_resource type="PackedScene" uid="uid://d12fl1b235c3f" path="res://scenes/door.tscn" id="8_vi46q"]
 [ext_resource type="Texture2D" uid="uid://byfedw6lyvhd3" path="res://assets/sprites/sprites/paka's petting sim/blue door.png" id="9_y6e4s"]
+[ext_resource type="PackedScene" uid="uid://cwfgkxlq6o13x" path="res://scenes/go_back.tscn" id="10_y6e4s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dausc"]
 texture = ExtResource("1_prnd0")
@@ -176,3 +177,5 @@ scale = Vector2(0.6, 0.6)
 color = Color(0.78083867, 0.97724205, 0.99609655, 0.7490196)
 energy = 0.3
 texture = SubResource("GradientTexture2D_y6e4s")
+
+[node name="GO_BACK" parent="." instance=ExtResource("10_y6e4s")]
