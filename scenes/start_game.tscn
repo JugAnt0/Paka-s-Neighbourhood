@@ -392,9 +392,9 @@ texture_hover = ExtResource("6_oyaqm")
 z_index = 1
 layout_mode = 0
 offset_left = 68.0
-offset_top = 26.0
+offset_top = 24.0
 offset_right = 108.0
-offset_bottom = 42.0
+offset_bottom = 40.0
 text = "10"
 
 [node name="Silhouette" type="Sprite2D" parent="Button Control/BlueButton"]
